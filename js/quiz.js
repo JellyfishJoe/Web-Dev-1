@@ -5,31 +5,48 @@ let answer = prompt(question);
 
 alert("You answered " + answer);*/
 
-let quiz = [["what is Superman\'s real name?", "Clark Kent", "Clark kent", "clark Kent", "clark kent"],
-			["What is Wonder Woman\'s real name?", "Diana Prince", "Diana prince", "diana Prince", "diana prince"],
-			["What is Batman\'s real name?", "Bruce Wayne", "Bruce wayne", "bruce Wayne", "bruce wayne"]];
+let quiz = {
+	"name": "Superhero Quiz",
+	"description": "How many heroes can you name?",
+	"question": "What is the real name of ",
+	/*"names":[
+			{"heroName": "Superman", "trueIdentity": "Clark Kent"},
+			{"heroName": "Wonder Woman", "trueIdentity": "Diana Prince"},
+			{"heroName": "Batman", "trueIdentity": "Bruce Wayne"}
+	],*/
+	"heroNames":[
+			"Superman",
+			"Wonder Woman",
+			"Batman"
+	],
+	"trueIdentities":[
+			"Clark Kent", 
+			"Diana Prince", 
+			"Bruce Wayne"
+	]
+};		
 
 let score = 0;
 
 play(quiz);
 
 function play(quiz) {
-	for(var i = 0, question, answer; i < quiz.length; i++) {
-		question = quiz[i][0];
+	for(var i = 0, question, answer; i < quiz.heroNames.length; i++) {
+		question = quiz.heroNames[i];
 		answer = ask(question);
 		check(answer);
 	}
 
 	function ask(question) {
-		return prompt(question);
+		return prompt(quiz.question + question + "?");
 	}
 
 	function check(answer) {
-		if(answer === quiz[i][1]){
+		if(answer === quiz.trueIdentities[i]){
 			alert("Correct");
 			score++;
 		} else {
-			alert("Wrong... \n The correct answer was " + quiz[i][1]);
+			alert("Wrong... \n The correct answer was " + quiz.trueIdentities[i]);
 		}
 	}
 
