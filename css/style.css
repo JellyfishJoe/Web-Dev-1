@@ -33,3 +33,15 @@ section p{
 	border: #900 2px solid;
 	color: #600;
 }
+
+button{
+	display: block;
+	width: 300px;
+	padding: 10px;
+	margin: 10px auto;
+	cursor: crosshair;
+	font: bold 24px Arial;
+	background-color: #beeeef;
+	color: darkorchid;
+	border-radius: 25px;
+}

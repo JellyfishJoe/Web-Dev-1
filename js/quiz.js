@@ -22,14 +22,15 @@ let quiz = {
 };		
 
 //These are the hooks that connect to our DOM obejcts
+var $question = document.getElementById('question');
+var $feedback = document.getElementById('feedback');
+var $score = document.getElementById('score');
 
-var $question = document.getElementById("question");
-var $feedback = document.getElementById("feedback");
-var $score = document.getElementById("score");
+let $start = document.getElementById('start');
 //Common practice is to name vars with $ that matches the DOM obejct
 
-//Create an update function that can be used to update an element on a page
 
+//Create an update function that can be used to update an element on a page
 function update(el, content, klass){
 	var p = el.firstChild; // Either update the first child or create on if there is not one
 	if(el === $score){
@@ -43,7 +44,7 @@ function update(el, content, klass){
 	}
 }
 
-play(quiz);
+$start.addEventListener('click', function(){play(quiz)});
 
 //Create a function for playing the game
 function play(quiz) {
@@ -55,8 +56,7 @@ function play(quiz) {
 		answer = ask(question);
 		check(answer);
 	}
-	gameOver();
-
+	
 	function ask(question) {
 		update($question, quiz.question + question);	//This will show the question on the page
 		return prompt("What is the real name of " + quiz.heroNames[i] + "?"); // We still need the prompt to enter answers util we start using forms
@@ -71,31 +71,10 @@ function play(quiz) {
 			update($feedback, "Wrong!", "wrong");
 		}
 	}
-}
 
-/*
-for (var i = 0; i < quiz.length; i++) {
-	let answer = prompt(quiz[i][0]);
-
-	if(answer === quiz[i][1]){
-		alert("Correct");
-		score++;
-	} else if (answer === quiz[i][2]) {
-		alert("Correct");
-		score++;
-	} else if (answer === quiz[i][3]) {
-		alert("Correct");
-		score++;
-	} else if (answer === quiz[i][4]) {
-		alert("Correct");
-		score++;
-	} else {
-		alert("Wrong... \n The correct answer was " + quiz[i][1]);
-		//score--;
+	function gameOver() {
+		update($question, "Game over, you scored " + score + " points!");
 	}
-}
-*/
 
-function gameOver() {
-	update($question, "Game over, you scored " + score + " points!");
+	gameOver();
 }
