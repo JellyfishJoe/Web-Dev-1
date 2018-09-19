@@ -11,6 +11,12 @@ header{
 	text-align: center;
 }
 
+section {
+	width: 400px;
+	margin: 0px auto;
+
+}
+
 section p{
 	font: bold 24px Arial, Helvetica, sans-serif;
 	background: #ccc;
@@ -20,6 +26,17 @@ section p{
 	padding: 10px;
 	margin: 10px;
 	width:300px;
+}
+
+form {
+	width: 400px;
+	margin: 0 auto;
+	outline: 1px solid red;
+}
+
+input[type=text] {
+	font: bold 24px Arial;
+	border: #999 2px solid;
 }
 
 .right{
