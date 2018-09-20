@@ -9,8 +9,7 @@ header{
 	color: #c00;
 	text-transform: uppercase;
 	text-align: center;
-}
-
+/*
 section {
 	width: 400px;
 	margin: 0px auto;
@@ -38,7 +37,7 @@ input[type=text] {
 	font: bold 24px Arial;
 	border: #999 2px solid;
 }
-
+*/
 .right{
 	background: #0c0;
 	border: #090 2px solid;
@@ -50,7 +49,7 @@ input[type=text] {
 	border: #900 2px solid;
 	color: #600;
 }
-
+/*
 button{
 	display: block;
 	width: 300px;
@@ -61,4 +60,17 @@ button{
 	background-color: #beeeef;
 	color: darkorchid;
 	border-radius: 25px;
+	text-align: center;
+}
+*/
+
+#submit {
+	text-align: center;
+	width: 100%;
+	background-color:green;
+}
+
+#start{
+	margin: 0 auto;
+	padding: auto;
 }
