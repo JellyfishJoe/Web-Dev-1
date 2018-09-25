@@ -3,15 +3,20 @@
 	padding:0;
 }
 
+body {
+
+}
+
 header{
 	font: bold 36px Arial, Helvetica, sans-serif;
 	background: #333;
 	color: #c00;
 	text-transform: uppercase;
 	text-align: center;
-/*
-section {
-	width: 400px;
+}
+
+section{
+	width: 350px;
 	margin: 0px auto;
 
 }
@@ -30,14 +35,13 @@ section p{
 form {
 	width: 400px;
 	margin: 0 auto;
-	outline: 1px solid red;
 }
 
 input[type=text] {
 	font: bold 24px Arial;
 	border: #999 2px solid;
 }
-*/
+
 .right{
 	background: #0c0;
 	border: #090 2px solid;
@@ -49,7 +53,7 @@ input[type=text] {
 	border: #900 2px solid;
 	color: #600;
 }
-/*
+
 button{
 	display: block;
 	width: 300px;
@@ -62,11 +66,15 @@ button{
 	border-radius: 25px;
 	text-align: center;
 }
-*/
+
+
+#answer {
+	width: 400px;
+}
 
 #submit {
 	text-align: center;
-	width: 100%;
+	width: 400px;
 	background-color:green;
 }
 
