@@ -72,10 +72,12 @@ function play(quiz) {
 	hide($start);
 
 	var score = 0;
-
+	quiz.trueIdentities[0];
 	var i = 0;
-	//This line will update the score while playing
 	update($score, score);
+	console.log("i = " + i);
+	//This line will update the score while playing
+	
 
 	/*
 	for(var i = 0, question, answer; i < quiz.heroNames.length; i++) {
@@ -95,7 +97,7 @@ function play(quiz) {
 
 	$form.addEventListener("submit", function(event){
 		event.preventDefault();
-		console.log($input.value)
+		console.log("submitted answer = " + $input.value)
 		check($input.value);
 	});
 
@@ -107,22 +109,32 @@ function play(quiz) {
 	}
 
 	function check(answer) {
+		console.log("correct answer = " + quiz.trueIdentities[i]);
 		if(answer === quiz.trueIdentities[i]){
 			update($feedback, "Correct!", "right");
 			score++;
 			update($score, score);
+			//i++;
 		} else {
-			update($feedback, "Wrong!", "wrong");
+			update($feedback, "Wrong!", "wrong");	
 		}
+		
 		i++;
+		console.log("i = " + i);
 		if(i === quiz.heroNames.length) {
-
+			gameOver();
 		} else {
 			chooseQuestion();
 		}
 	}
 
 	function gameOver() {
-		update($question, "Game over, you scored " + score + " points!");
+		update($questionSpot, "Game over, you scored " + score + " points!");
+		update($feedback, "", 'reset');
+		show($start);
+		hide($form);
+		//hide($questionSpot);
+		hide($feedback);
+		//hide($score);
 	}
 }
