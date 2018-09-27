@@ -28,6 +28,7 @@ let $form = document.forms.checkAnswer;
 let $input = $form.elements.answer;
 
 let $start = document.getElementById('start');
+let $again = document.getElementById('playAgain');
 //Common practice is to name vars with $ that matches the DOM obejct
 
 
@@ -59,14 +60,18 @@ hide($form);
 hide($questionSpot);
 hide($feedback);
 hide($score);
+hide($again);
 
 $start.addEventListener('click', function(){play(quiz)});
+$again.addEventListener('click', function(){restart()});
+
+play(quiz);
 
 //Create a function for playing the game
 function play(quiz) {
+	console.log('started');
 	show($form);
 	show($questionSpot);
-	show($feedback);
 	show($score);
 
 	hide($start);
@@ -77,15 +82,6 @@ function play(quiz) {
 	update($score, score);
 	console.log("i = " + i);
 	//This line will update the score while playing
-	
-
-	/*
-	for(var i = 0, question, answer; i < quiz.heroNames.length; i++) {
-		question = quiz.heroNames[i];
-		answer = ask(question);
-		check(answer);
-	}
-	*/
 
 	function chooseQuestion() {
 		question = quiz.heroNames[i];
@@ -110,6 +106,7 @@ function play(quiz) {
 
 	function check(answer) {
 		console.log("correct answer = " + quiz.trueIdentities[i]);
+		show($feedback);
 		if(answer === quiz.trueIdentities[i]){
 			update($feedback, "Correct!", "right");
 			score++;
@@ -129,12 +126,22 @@ function play(quiz) {
 	}
 
 	function gameOver() {
+		basicPopup();
 		update($questionSpot, "Game over, you scored " + score + " points!");
 		update($feedback, "", 'reset');
-		show($start);
+		show($again);
 		hide($form);
 		//hide($questionSpot);
 		hide($feedback);
 		//hide($score);
 	}
+}
+
+function restart() {
+	location.reload();
+}
+
+function basicPopup() {
+	console.log("opopfjdiopsafjdpsoaosdafojijklfa;njkla; nbklsbdanjkla bdml mnblaasfagjkl");
+	popup = window.open('img/iWannaDie.jpg', 'Popup', 'width=640 height=480');
 }
